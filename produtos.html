@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <title>Painel | Produtos</title>
+    <meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-deep_orange.min.css" />
+	<script defer src="recursos/mdl/material.min.js"></script>
+	
+	<script src="recursos/firebase.js"></script>
+	<script src="recursos/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="recursos/dialog-polyfill/dialog-polyfill.css" />
+    <script src="recursos/dialog-polyfill/dialog-polyfill.js"></script>
+    
+	<link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    
+    <!-- Menu -->
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	  <header class="mdl-layout__header">
+		<div class="mdl-layout-icon"></div>
+		<div class="mdl-layout__header-row">
+		  <span class="mdl-layout__title">Snack Delivery <i class="material-icons">moped</i>
+		  </span>
+		  <div class="mdl-layout-spacer"></div>
+          	<nav class="mdl-navigation mdl-layout--large-screen-only">
+             	<a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i> <b>Início</b> </a>
+                <a class="mdl-navigation__link" href="erro404.html"><i class="material-icons">record_voice_over</i> <b>Pedidos</b> </a>
+                <a class="mdl-navigation__link" href="categorias.html"><i class="material-icons">category</i> <b>Categorias</b> </a>
+                <a class="mdl-navigation__link" href="produtos.html"><i class="material-icons">shopping_cart</i> <b>Produtos</b> </a>
+		  		<a class="mdl-navigation__link" href="erro404.html"><i class="material-icons">flag</i> <b>Promoções</b> </a>
+                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons">build_circle</i> <b>Perfil</b> </a>
+                <a class="mdl-navigation__link" href="" onClick="logoff()"><i class="material-icons">account_circle</i> <b>Sair</b> </a>
+		  </nav>
+		</div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active"> <b>CADASTRAR / EDITAR</b> </a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab"> <b>LISTAR</b> </a>
+        </div>
+	  </header>
+      
+	  <div class="mdl-layout__drawer ">
+      	<span class="mdl-layout-title">Menu</span>
+            <nav class="mdl-navigation">
+            	<a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i> <b>Início</b> </a>
+                <a class="mdl-navigation__link" href="erro404.html"><i class="material-icons">record_voice_over</i> <b>Pedidos</b> </a>
+                <a class="mdl-navigation__link" href="categorias.html"><i class="material-icons">category</i> <b>Categorias</b> </a>
+                <a class="mdl-navigation__link" href="produtos.html"><i class="material-icons">shopping_cart</i> <b>Produtos</b> </a>
+		  		<a class="mdl-navigation__link" href="erro404.html"><i class="material-icons">flag</i> <b>Promoções</b> </a>
+                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons">build_circle</i> <b>Perfil</b> </a>
+                <a class="mdl-navigation__link" href="" onClick="logoff()"><i class="material-icons">account_circle</i> <b>Sair</b> </a>
+            </nav>
+	  </div>
+      
+      <main class="mdl-layout__content">
+      
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content" align="center">
+              <!--Todo o conteúdo da tab 01-->                            
+              <form>
+                  <div>
+                    <label for="image_uploads" class="mdl-button--raised mdl-button--colored">
+                    	<i class="material-icons ">camera_alt</i>
+                    </label>
+                    
+                    <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" class="file">
+                  </div>
+                  <div class="preview" align="center">
+                    <!--Imagem-->
+                    <br/> Nenhuma imagem selecionada...
+                  </div>
+              </form>
+              
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+              	<input class="mdl-textfield__input tfCampos" type="text" id="tfNome" autocomplete>
+   	 			<label class="mdl-textfield__label">Nome do Produto...</label>
+              </div>
+              <br/><br/>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+              	<input class="mdl-textfield__input tfCampos" type="text" id="tfValor">
+   	 			<label class="mdl-textfield__label">Valor...</label>
+              </div>
+              <br/><br/>
+              <div class="conteudoTexto">
+                  <b>Categorias: </b><select id="cbCategoria" class="select" style="width:209px"></select>
+                  &nbsp
+                  <b>Adcionais: </b><select id="cbAdcionais" class="select"><option value="Não">Não</option><option value="Sim">Sim</option></select>
+                  &nbsp
+                  <b>Status: </b><select id="cbStatus" class="select"><option value="Liberado">Liberado</option><option value="Bloqueado">Bloqueado</option></select>
+              </div>
+              <br/>
+              <div class="mdl-textfield mdl-js-textfield divForm">
+                  <textarea id="taDescricao" class="mdl-textfield__input tfCampos" type="text" rows="3"  style="resize: none"></textarea>
+                  <label class="mdl-textfield__label" for="sample5">Descrição...</label>
+              </div>
+              
+              <br/><br/>
+              
+              <button id="btnNovo" onClick="novo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect acaoButton">
+                <i class="material-icons">add_box</i> Novo
+              </button>
+              
+              <button id="btnSalvar" onClick="salvarDados()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect acaoButton">
+                <i class="material-icons">save</i> Salvar
+              </button>
+
+              <button id="btnEditar" onClick="editarDados()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">edit</i> Editar
+              </button>
+              
+              <br/><br/>
+              
+              <!-- MDL Progress Bar with Indeterminate Progress -->
+              <div id="progressoBar" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+				
+              <br/><br/>
+                            
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content" align="center">
+              <!--Todo o conteúdo da tab 02-->
+              
+              <div class="search">
+              <form name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='')findString(this.t1.value);return false">
+              	<input type="text" name="t1" value="" size=20 class="search searchInput tfCampos" placeholder="Pesquisar...">
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                  <i class="material-icons">search</i>
+                </button>
+              </form>
+              </div>
+                
+              <div id="conteudoListar" class="conteudo">
+            	<!--Lista os Produtos-->
+				  
+              </div>
+              
+          </div>
+        </section>
+        
+        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+        	<div class="mdl-snackbar__text"></div>
+        	<button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        
+      </main>
+      
+    </div>
+    
+	<script src="js/produtos.js" charset="UTF8"></script>
+    <script src="recursos/file.js" charset="UTF8"></script>
+    <script src="recursos/search.js" charset="UTF8"></script>
+    
+  </body>
+</html>

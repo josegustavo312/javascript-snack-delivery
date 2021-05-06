@@ -1,0 +1,158 @@
+<html>
+  <head>
+    <title>Painel | Perfil</title>
+    <meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-deep_orange.min.css" />
+	<script defer src="recursos/mdl/material.min.js"></script>
+	
+	<script src="recursos/firebase.js"></script>
+	<script src="recursos/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="recursos/dialog-polyfill/dialog-polyfill.css" />
+    <script src="recursos/dialog-polyfill/dialog-polyfill.js"></script>
+    <script src="recursos/jquery.mask.min.js"></script>
+    
+	<link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    
+    <!-- Menu -->
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	  <header class="mdl-layout__header">
+		<div class="mdl-layout-icon"></div>
+		<div class="mdl-layout__header-row">
+		  <span class="mdl-layout__title">Snack Delivery <i class="material-icons">moped</i>
+		  </span>
+		  <div class="mdl-layout-spacer"></div>
+          	<nav class="mdl-navigation mdl-layout--large-screen-only">
+             	<a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i> <b>Início</b> </a>
+                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons">build_circle</i> <b>Perfil</b> </a>
+                <a class="mdl-navigation__link" href="" onClick="logoff()"><i class="material-icons">account_circle</i> <b>Sair</b> </a>
+		  </nav>
+		</div>
+	  </header>
+      
+	  <div class="mdl-layout__drawer ">
+      	<span class="mdl-layout-title">Menu</span>
+            <nav class="mdl-navigation">
+            	<a class="mdl-navigation__link" href="index.html"><i class="material-icons">home</i> <b>Início</b> </a>
+                <a class="mdl-navigation__link" href="perfil.html"><i class="material-icons">build_circle</i> <b>Perfil</b> </a>
+                <a class="mdl-navigation__link" href="" onClick="logoff()"><i class="material-icons">account_circle</i> <b>Sair</b> </a>
+            </nav>
+	  </div>
+      
+      <main class="mdl-layout__content">
+      	<div class="page-content" align="center">             
+           <form>
+               <div>
+                 <label for="image_uploads" class="mdl-button--raised mdl-button--colored">
+                   	<i class="material-icons ">camera_alt</i>
+                 </label>
+                  
+                 <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" class="file">
+               </div>
+               <div class="preview" align="center">
+                 <!--Imagem-->
+                 <br/> Nenhuma imagem selecionada...
+               </div>
+           </form>
+           
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm conteudoTexto">
+               <b>Categoria: </b>
+               <select id="cbCategoria" class="select" style="width:580px">                   
+                   <option value="Bebidas">Bebidas</option>
+                   <option value="Comidas">Comidas</option>
+                   <option value="Cosméticos">Cosméticos</option>
+                   <option value="Eletrônicos">Eletrônicos</option>
+                   <option value="Farmácia">Farmácia</option>
+                   <option value="Frios">Frios</option>
+                   <option value="Gás e água">Gás e água</option>
+                   <option value="Hortifrúti">Hortifrúti</option>
+                   <option value="Mercado">Mercado</option>
+                   <option value="Pet">Padaria</option>
+                   <option value="Pet">Pet</option>
+                   <option value="Restaurante">Restaurante</option>
+                   <option value="Variedades">Variedades</option>
+                   <option value="Vestuário">Vestuário</option>         
+               </select>
+           </div>
+            
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" id="tfNome" placeholder=" ">
+   	 		<label class="mdl-textfield__label">Nome...</label>
+           </div>
+           
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfTelefone">
+   	 		<label class="mdl-textfield__label">Telefone...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfWhatsapp">
+   	 		<label class="mdl-textfield__label">Whatsapp...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfHorario">
+   	 		<label class="mdl-textfield__label">Horário...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfEmail">
+   	 		<label class="mdl-textfield__label">Email...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfCidade">
+   	 		<label class="mdl-textfield__label">Cidade...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos form-control" type="text" placeholder=" " id="tfCEP">
+   	 		<label class="mdl-textfield__label">CEP...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfBairro">
+   	 		<label class="mdl-textfield__label">Bairro...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label divForm">
+           	<input class="mdl-textfield__input tfCampos" type="text" placeholder=" " id="tfEndereco">
+   	 		<label class="mdl-textfield__label">Endereço...</label>
+           </div>
+           <div class="mdl-textfield mdl-js-textfield divForm">
+               <textarea id="taDescricao" class="mdl-textfield__input tfCampos" type="text" rows="3"  style="resize: none" placeholder="Descrição..."></textarea>
+           </div>
+              
+           <br/><br/>
+              
+           <button id="btnNovo" onClick="novo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect acaoButton">
+             <i class="material-icons">add_box</i> Novo
+           </button>
+              
+           <button id="btnSalvar" onClick="salvarDados()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect acaoButton">
+             <i class="material-icons">save</i> Salvar
+           </button>
+
+           <button id="btnEditar" onClick="editarDados()" disabled="true" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+             <i class="material-icons">edit</i> Editar
+           </button>
+              
+           <br/><br/>
+             
+           <!-- MDL Progress Bar with Indeterminate Progress -->
+           <div id="progressoBar" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+           
+           <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+               <div class="mdl-snackbar__text"></div>
+               <button class="mdl-snackbar__action" type="button"></button>
+           </div>
+			
+           <br/><br/>
+        
+        </div>
+        
+      </main>
+      
+    </div>
+    
+    <script src="js/perfil.js" charset="UTF8"></script>
+    <script src="recursos/file.js" charset="UTF8"></script>
+    
+  </body>
+</html>

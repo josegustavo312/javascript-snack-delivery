@@ -1,0 +1,371 @@
+/* # id, . class */
+*{
+	box-sizing: border-box;
+	outline: none;
+}	
+
+.page-title-span{
+	margin-left: 10px;
+}
+
+.textArea{
+	width:50%;
+	font-size:18px;
+	color:5b5b5b;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+/* FILE */
+
+form {
+  width: 50%;
+  padding-top: 10px;
+}
+
+.file{
+	width: 0.1px;
+	height: 0.1px;
+	position: absolute;
+	z-index: -1;
+}
+
+form li, div > p {
+  justify-content: space-between;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+form img {
+  width:70%;
+  height:70%;
+  order: 1;
+  padding-bottom:10px;
+  float:none;
+}
+
+form p {
+  line-height: 32px;
+}
+
+form label, form button {
+  background-color: #3f51b5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  height: auto;
+  color: white;
+  float:right;
+}
+
+form label:hover, form button:hover {
+  background-color: #001693;
+  color: white;
+}
+
+form label:active, form button:active {
+  background-color: #0D3F8F;
+  color: white;
+}
+
+/* LOGIN */
+
+.login-cover{
+	background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 800;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#progressoBar{
+	display: none;
+}
+
+#paragrafoErro{
+	color:#f44336;
+}
+
+/* INDEX */
+
+/* Cartão principal */
+.demo-card-wide.mdl-card {
+  width: 56.8%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  font-size:large;
+  height: 280px;
+  background: url('../img/banner.png') center / cover;
+}
+.demo-card-wide > .mdl-card__title-contatos {
+  color: #000;
+  height: 280px;
+  background: url('../img/contatos.png') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+/* Layout de 3 Colunas */
+.divCenterCol{
+	display: table;
+}
+
+.divCol{
+	float:left;
+    width:32,5%;
+	margin:5px 2px 0 2px;
+}
+
+/* Cartões */
+.demo-card-event.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: #3E4EB8;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+
+/* Badge */
+.w3-badge{
+	background-color:#7c4dff;
+	color:#fff;
+	display:inline-block;
+	padding-left:8px;
+	padding-right:8px;
+	text-align:center
+}
+
+.w3-badge{
+	border-radius:100%
+}
+
+/* REGISTRAR */
+
+.conteudo{
+	padding-top: 10px;
+}
+
+.conteudoAssunto{
+	width:50%;
+	font-size:24px;
+	color:#3f51b5;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.conteudoImagem{
+	width:50%;
+	height:80%;
+}
+
+.conteudoStatus{
+	width:50%;
+	font-size:18px;
+	text-align:right;
+}
+
+.inputStatus{
+	font-style:italic;
+	color:5b5b5b;
+	font-size:18px;
+}
+
+.conteudoTexto{
+	width:50%;
+	font-size:18px;
+	text-align:left;
+	text-align:justify;
+	padding-bottom:10px;
+	color:5b5b5b;
+}
+
+.conteudoResposta{
+	font-size:20px;
+}
+
+.respostaStatus{
+	width:50%;
+	font-size:18px;
+	text-align:left;
+}
+
+.select{
+	color:5b5b5b;
+	font-size:18px;
+}
+
+hr{
+  border-color:#aaa;
+  box-sizing:border-box;
+  width:50%;
+}
+
+.acaoButton{
+	margin-right: 10%;	
+}
+
+.mdl-snackbar__action{
+	display: none;
+}
+
+.divForm{
+	width: 50%;
+}
+
+.tfCampos{
+	font-size:18px;
+	color:5b5b5b;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+
+/* LISTAR */
+.search {
+	float: left;
+    position: fixed;
+  	right: 10;
+	z-index:1; /* SOBREPÕE OS ELEMENTOS */
+}
+
+.searchInput {
+  	right: 100;
+	height: 38px;
+}
+
+.thNomeListar {
+  	width: 340px;
+}
+
+.thNomeCatListar {
+  	width: 450px;
+}
+
+.tableListar {
+	border: 1px solid black;
+	width: 670px;
+	table-layout:fixed;
+}
+
+table {
+	border-collapse: collapse; /*Define que as bordas da tabela devem ser uma única borda*/
+	font-size:14px;
+	color:5b5b5b;
+	font-family:Verdana, Geneva, sans-serif;
+	border-top: 1px solid #ddd;
+}
+
+table, th{
+	background:#FFF;
+	padding:10px;	
+	border-top: 1px solid #ddd;
+}
+
+th, td {	
+	border-bottom: 1px solid #ddd;
+}
+
+td{
+	text-align:center;
+	padding:10px;
+}
+
+.tdLeft{
+	border-left: 1px solid #ddd;
+}
+
+.tdRight{
+	border-right: 1px solid #ddd;
+}
+
+/* Seletor em <tr> para destacar como linhas da tabela ao passar o mouse */
+tr:hover {
+	background-color: #eeeeee;
+}
+
+ /* O switch - a caixa ao redor do controle deslizante */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #f44336;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
